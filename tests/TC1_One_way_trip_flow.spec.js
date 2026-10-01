@@ -53,13 +53,7 @@ console.log('Book button count:', flightCount);
   await expect(farePopup.getSelectedFarePrice()).toHaveText(resultsPrice);
   await expect(farePopup.getBottomConfirmPrice()).toHaveText(resultsPrice);
 
-  const [newPage] = await Promise.all([
-  page.context().waitForEvent('page'),
-  farePopup.clickContinue()
-]);
-
-await newPage.waitForLoadState('domcontentloaded');
-
+const newPage = await farePopup.clickContinue();
 const itineraryPage = new ItineraryPage(newPage);
 
 await expect(newPage).toHaveURL(/flights\/itinerary/, {

@@ -2,6 +2,7 @@ const selectors = {
   bookButton: 'button:has-text("Book")',
   cityInputWithValue: 'input[type="text"][value]:not([readonly])',
   flightCard: 'div.sc-bdfDLd.dDzCFr',
+  airlineFilterRow: 'div.sc-bdfDLd.itIkov',
 
   // Round-trip additions
   roundTripFlightCard: (leg) =>
@@ -9,6 +10,7 @@ const selectors = {
   bookNowButton: 'button:has-text("Book now")',
   comboPrice: 'h2:near(button:has-text("Book now"), 300)',
 summaryBar: 'div.sc-bdfDLd.keUNTb.flex',
+priceSortToggle: ':text-is("Price")',
 
 summaryAirlineLogo: (airlineCode) =>
   `img[width="32"][height="32"][alt="${airlineCode}"]`,
@@ -83,6 +85,21 @@ class ResultsPage {
     return match ? match[0] : null;
   }
 
+// finds the filter row for an EXACT airline name match, then clicks its checkbox
+async selectAirlineFilter(airlineName) {
+  const row = this.page.locator(selectors.airlineFilterRow).filter({
+    has: this.page.locator(`:text-is("${airlineName}")`),
+  });
+  await row.locator('input[type="checkbox"]').first().click();
+}
+
+isAirlineFilterChecked(airlineName) {
+  const row = this.page.locator(selectors.airlineFilterRow).filter({
+    has: this.page.locator(`:text-is("${airlineName}")`),
+  });
+  return row.locator('input[type="checkbox"]').first();
+}
+
   getComboPrice() {
     return this.page.locator(selectors.comboPrice).first();
   }
@@ -117,6 +134,24 @@ getSummaryTimes() {
   async clickBookNow() {
     await this.getBookNowButton().click();
   }
+
+  // clicks the "Price" sort control, toggling between ascending/descending
+async clickPriceSort() {
+  await this.page.locator(selectors.priceSortToggle).first().click();
+}
+
+// reads every visible flight card's price and returns them as an array of numbers,
+// in the order they currently appear on the page - used to verify sort order
+async getAllFlightPrices() {
+  const priceElements = await this.page.locator(selectors.flightCard).locator('h2').all();
+  const prices = [];
+  for (const el of priceElements) {
+    const text = await el.innerText();
+    const number = parseInt(text.replace(/[^0-9]/g, ''), 10); // strips ₹ and commas, keeps digits
+    prices.push(number);
+  }
+  return prices;
+}
 }
 
 module.exports = { ResultsPage }; 

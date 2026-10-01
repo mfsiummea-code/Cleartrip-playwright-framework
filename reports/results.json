@@ -1,0 +1,215 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\bookmyshow-playwright-framework\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "API_tests.spec.js"
+    ],
+    "configFile": "D:\\bookmyshow-playwright-framework\\playwright.config.js",
+    "rootDir": "D:/bookmyshow-playwright-framework/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/bookmyshow-playwright-framework/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "D:/bookmyshow-playwright-framework/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "D:\\bookmyshow-playwright-framework\\node_modules\\allure-playwright\\dist\\cjs\\index.js",
+        {
+          "resultsDir": "allure-results",
+          "detail": true,
+          "suiteTitle": false
+        }
+      ],
+      [
+        "html",
+        {
+          "open": "never",
+          "outputFolder": "playwright-report"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "reports/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 7,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "API_tests.spec.js",
+      "file": "API_tests.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "API PUT Request",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 504,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "{\n  name: \u001b[32m'morpheus'\u001b[39m,\n  job: \u001b[32m'leader'\u001b[39m,\n  updatedAt: \u001b[32m'2026-09-29T09:42:18.070Z'\u001b[39m,\n  _meta: {\n    powered_by: \u001b[32m'ReqRes'\u001b[39m,\n    docs_url: \u001b[32m'https://app.reqres.in/documentation'\u001b[39m,\n    upgrade_url: \u001b[32m'https://app.reqres.in/upgrade'\u001b[39m,\n    example_url: \u001b[32m'https://app.reqres.in/examples/notes-app'\u001b[39m,\n    variant: \u001b[32m'v1_a'\u001b[39m,\n    message: \u001b[32m'Your data persists here. Add auth, logs, and custom schemas to build a real backend.'\u001b[39m,\n    cta: {\n      label: \u001b[32m'See example app'\u001b[39m,\n      url: \u001b[32m'https://app.reqres.in/examples/notes-app'\u001b[39m\n    },\n    context: \u001b[32m'legacy_success'\u001b[39m\n  }\n}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-29T09:42:18.057Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8db9f0227ad5b659861-124010c547c57402d696",
+          "file": "API_tests.spec.js",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "API POST Request",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 533,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "{\n  name: \u001b[32m'morpheus'\u001b[39m,\n  job: \u001b[32m'leader'\u001b[39m,\n  id: \u001b[32m'711'\u001b[39m,\n  createdAt: \u001b[32m'2026-09-29T09:42:18.088Z'\u001b[39m,\n  _meta: {\n    powered_by: \u001b[32m'ReqRes'\u001b[39m,\n    docs_url: \u001b[32m'https://app.reqres.in/documentation'\u001b[39m,\n    upgrade_url: \u001b[32m'https://app.reqres.in/upgrade'\u001b[39m,\n    example_url: \u001b[32m'https://app.reqres.in/examples/notes-app'\u001b[39m,\n    variant: \u001b[32m'v1_a'\u001b[39m,\n    message: \u001b[32m'Your data persists here. Add auth, logs, and custom schemas to build a real backend.'\u001b[39m,\n    cta: {\n      label: \u001b[32m'See example app'\u001b[39m,\n      url: \u001b[32m'https://app.reqres.in/examples/notes-app'\u001b[39m\n    },\n    context: \u001b[32m'legacy_success'\u001b[39m\n  }\n}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-29T09:42:18.038Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8db9f0227ad5b659861-296aa1bc598811af7a43",
+          "file": "API_tests.spec.js",
+          "line": 17,
+          "column": 5
+        },
+        {
+          "title": "API GET Request",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 526,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "{\n  data: {\n    id: \u001b[33m2\u001b[39m,\n    email: \u001b[32m'janet.weaver@reqres.in'\u001b[39m,\n    first_name: \u001b[32m'Janet'\u001b[39m,\n    last_name: \u001b[32m'Weaver'\u001b[39m,\n    avatar: \u001b[32m'https://reqres.in/img/faces/2-image.jpg'\u001b[39m\n  },\n  support: {\n    url: \u001b[32m'https://benhowdle.im/first-cto-playbook?utm_source=reqres&utm_medium=json&utm_campaign=referral'\u001b[39m,\n    text: \u001b[32m'Become a better CTO. A playbook of painful stories and practical advice from a two-time startup CTO.'\u001b[39m\n  },\n  _meta: {\n    powered_by: \u001b[32m'ReqRes'\u001b[39m,\n    docs_url: \u001b[32m'https://app.reqres.in/documentation'\u001b[39m,\n    upgrade_url: \u001b[32m'https://app.reqres.in/upgrade'\u001b[39m,\n    example_url: \u001b[32m'https://app.reqres.in/examples/notes-app'\u001b[39m,\n    variant: \u001b[32m'v1_a'\u001b[39m,\n    message: \u001b[32m'Your data persists here. Add auth, logs, and custom schemas to build a real backend.'\u001b[39m,\n    cta: {\n      label: \u001b[32m'See example app'\u001b[39m,\n      url: \u001b[32m'https://app.reqres.in/examples/notes-app'\u001b[39m\n    },\n    context: \u001b[32m'legacy_success'\u001b[39m\n  }\n}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-29T09:42:18.038Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8db9f0227ad5b659861-f8b9245c1cc937a1ed82",
+          "file": "API_tests.spec.js",
+          "line": 31,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-29T09:42:17.102Z",
+    "duration": 2163.101,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

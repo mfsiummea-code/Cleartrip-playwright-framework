@@ -24,8 +24,8 @@ test('TC02 - Round trip flight search', async ({ page }) => {
   await expect(page).toHaveURL(/flights\/results/);
   await expect(page).toHaveURL(/rnd_one=R/i);
 
-  const onwardIndex = 0; // change to any index
-  const returnIndex = 0; // change to any index
+  const onwardIndex = 0; // we can change to any index
+  const returnIndex = 0; // we can change to any index
 
   const onwardCard = resultsPage.getOnwardFlightCard(onwardIndex);
   const returnCard = resultsPage.getReturnFlightCard(returnIndex);
