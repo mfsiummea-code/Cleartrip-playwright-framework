@@ -28,13 +28,27 @@ class HomePage {
     this.page = page;
   }
 
-  async goto() {
-    await this.page.goto('/');
+      async goto() {
+    // Dismiss the login popup whenever it appears and blocks an action
+    await this.page.addLocatorHandler(
+      this.page.locator(selectors.popup.closeIcon),
+      async (closeIcon) => {
+        await closeIcon.click();
+      }
+    );
+    await this.page.goto('/', { waitUntil: 'domcontentloaded' });
   }
 
-  async closePopupIfVisible() {
+    async closePopupIfVisible() {
     const closeIcon = this.page.locator(selectors.popup.closeIcon);
-    if (await closeIcon.isVisible()) {
+
+    // Give the popup up to 5s to appear. If it never does, there's nothing to close.
+    const appeared = await closeIcon
+      .waitFor({ state: 'visible', timeout: 5000 })
+      .then(() => true)
+      .catch(() => false);
+
+    if (appeared) {
       await closeIcon.click();
     }
   }
@@ -74,7 +88,7 @@ class HomePage {
   getResultsDateTabLabel() {
     const targetDate = this.getTargetDate();
     const dayOfWeek = targetDate.toLocaleDateString('en-US', { weekday: 'short' });
-    const day = targetDate.getDate();
+    const day = String(targetDate.getDate()).padStart(2, '0');
     const month = targetDate.toLocaleDateString('en-US', { month: 'short' });
     return `${dayOfWeek}, ${day} ${month}`;
   }
@@ -85,7 +99,7 @@ class HomePage {
     const targetDate = this.getTargetDate();
     const dayOfWeek = targetDate.toLocaleDateString('en-US', { weekday: 'short' });
     const month = targetDate.toLocaleDateString('en-US', { month: 'short' });
-    const day = targetDate.getDate();
+    const day = String(targetDate.getDate()).padStart(2, '0');
     const year = targetDate.getFullYear();
 
     const dateLabel = `${dayOfWeek} ${month} ${day} ${year}`;
@@ -107,7 +121,7 @@ class HomePage {
 
     const dayOfWeek = targetDate.toLocaleDateString('en-US', { weekday: 'short' });
     const month = targetDate.toLocaleDateString('en-US', { month: 'short' });
-    const day = targetDate.getDate();
+    const day = String(targetDate.getDate()).padStart(2, '0');
     const year = targetDate.getFullYear();
     const dateLabel = `${dayOfWeek} ${month} ${day} ${year}`;
 

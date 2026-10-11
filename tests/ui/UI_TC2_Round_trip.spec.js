@@ -1,8 +1,8 @@
 const { test, expect } = require('@playwright/test');
-const { HomePage } = require('../pages/homepage');
-const { ResultsPage } = require('../pages/resultspage');
+const { HomePage } = require('../../pages/ui/homepage');
+const { ResultsPage } = require('../../pages/ui/resultspage');
 
-test('TC02 - Round trip flight search', async ({ page }) => {
+test('TC02 - Round trip flight search',{ tag: '@smoke' }, async ({ page }) => {
   const homePage = new HomePage(page);
   const resultsPage = new ResultsPage(page);
 

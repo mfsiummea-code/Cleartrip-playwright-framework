@@ -1,10 +1,10 @@
 const { test, expect } = require('@playwright/test');
-const { HomePage } = require('../pages/homepage');
-const { ResultsPage } = require('../pages/resultspage');
-const { FarePopup } = require('../pages/farepopup');
-const { ItineraryPage } = require('../pages/itinerarypage');
+const { HomePage } = require('../../pages/ui/homepage');
+const { ResultsPage } = require('../../pages/ui/resultspage');
+const { FarePopup } = require('../../pages/ui/farepopup');
+const { ItineraryPage } = require('../../pages/ui/itinerarypage');
 
-test('TC01 - One way flight search', async ({ page }) => {
+test('TC01 - One way flight search',{ tag: '@smoke' }, async ({ page }) => {
   const homePage = new HomePage(page);
   const resultsPage = new ResultsPage(page);
   const farePopup = new FarePopup(page);
@@ -24,8 +24,8 @@ test('TC01 - One way flight search', async ({ page }) => {
 
   await expect(page).toHaveURL(/flights\/results/);
   console.log('Book button count:', await resultsPage.getBookButtons().count());
-console.log('Current URL:', page.url());
-  await expect(resultsPage.getBookButtons().first()).toBeVisible();
+  console.log('Current URL:', page.url());
+  await expect(resultsPage.getBookButtons().first()).toBeVisible({ timeout: 30000 });
 
   // verify from/to locations carried over correctly
   await expect(resultsPage.getFromInput()).toHaveValue(/Delhi/i);
@@ -37,10 +37,11 @@ console.log('Current URL:', page.url());
   // verify departure date matches what we selected (today + 1 month)
   await expect(resultsPage.getSelectedDateTab(homePage.getResultsDateTabLabel())).toBeVisible();
 
-  const flightIndexToBook = 3; // change this single value to book any flight dynamically
+  //const flightIndexToBook = 1; // change this single value to book any flight dynamically
 
   const flightCount = await resultsPage.getBookButtonsCount();
   expect(flightCount).toBeGreaterThan(0);
+  const flightIndexToBook = Math.min(3, flightCount - 1);
 
   const cardCount = await resultsPage.page.locator('div.sc-bdfDLd.dDzCFr').count();
 console.log('Flight card count:', cardCount);

@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-const { HomePage } = require('../pages/homepage');
+const { HomePage } = require('../../pages/ui/homepage');
 
 test.describe.serial('TC04 - Visual Validation on Homepage', () => {
     test.beforeEach(async ({ page }) => {

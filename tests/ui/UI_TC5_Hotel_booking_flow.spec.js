@@ -1,11 +1,11 @@
 const { test, expect } = require('@playwright/test');
-const { HomePage } = require('../pages/homepage');
-const { HotelHomePage } = require('../pages/hotelhomepage');
-const { HotelResultsPage } = require('../pages/hotelresultspage');
-const { HotelDetailsPage } = require('../pages/hoteldetailspage');
-const { HotelItineraryPage } = require('../pages/hotelitinerarypage');
+const { HomePage } = require('../../pages/ui/homepage');
+const { HotelHomePage } = require('../../pages/ui/hotelhomepage');
+const { HotelResultsPage } = require('../../pages/ui/hotelresultspage');
+const { HotelDetailsPage } = require('../../pages/ui/hoteldetailspage');
+const { HotelItineraryPage } = require('../../pages/ui/hotelitinerarypage');
 
-test('TC05 - One way hotel search', async ({ page }) => {
+test('TC05 - One way hotel search',{ tag: '@smoke' }, async ({ page }) => {
   const homePage = new HomePage(page);
   const hotelHomePage = new HotelHomePage(page);
   const hotelResultsPage = new HotelResultsPage(page);

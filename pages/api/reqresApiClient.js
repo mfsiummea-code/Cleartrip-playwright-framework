@@ -33,3 +33,4 @@ export class ReqresApiClient {
     return this.request.delete(`${this.baseUrl}/users/${userId}`);
   }
 }
+

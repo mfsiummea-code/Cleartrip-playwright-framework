@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
-const { HomePage } = require('../pages/homepage');
-const { ResultsPage } = require('../pages/resultspage');
+const { HomePage } = require('../../pages/ui/homepage');
+const { ResultsPage } = require('../../pages/ui/resultspage');
 
 test('TC03 - Swap cities and verify search results', async ({ page }) => {
   const homePage = new HomePage(page);

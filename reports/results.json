@@ -2,41 +2,76 @@
   "config": {
     "argv": [
       "C:\\Program Files\\nodejs\\node.exe",
-      "D:\\bookmyshow-playwright-framework\\node_modules\\@playwright\\test\\cli.js",
+      "D:\\Cleartrip-playwright-framework\\node_modules\\@playwright\\test\\cli.js",
       "test",
-      "API_tests.spec.js"
+      "--grep",
+      "@smoke",
+      "--project=chromium",
+      "--workers=1"
     ],
-    "configFile": "D:\\bookmyshow-playwright-framework\\playwright.config.js",
-    "rootDir": "D:/bookmyshow-playwright-framework/tests",
+    "configFile": "D:\\Cleartrip-playwright-framework\\playwright.config.js",
+    "rootDir": "D:/Cleartrip-playwright-framework/tests",
     "failOnFlakyTests": false,
     "forbidOnly": false,
     "fullyParallel": true,
-    "globalSetup": null,
+    "globalSetup": "D:\\Cleartrip-playwright-framework\\global-setup.js",
     "globalTeardown": null,
     "globalTimeout": 0,
     "grep": {},
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 3
+      "actualWorkers": 1
     },
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "D:/bookmyshow-playwright-framework/test-results",
+        "outputDir": "D:/Cleartrip-playwright-framework/test-results",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 3
+          "actualWorkers": 1
         },
         "id": "chromium",
         "name": "chromium",
-        "testDir": "D:/bookmyshow-playwright-framework/tests",
+        "testDir": "D:/Cleartrip-playwright-framework/tests",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
-        "timeout": 30000
+        "timeout": 60000
+      },
+      {
+        "outputDir": "D:/Cleartrip-playwright-framework/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "D:/Cleartrip-playwright-framework/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "D:/Cleartrip-playwright-framework/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "D:/Cleartrip-playwright-framework/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
       }
     ],
     "quiet": false,
@@ -46,7 +81,7 @@
         null
       ],
       [
-        "D:\\bookmyshow-playwright-framework\\node_modules\\allure-playwright\\dist\\cjs\\index.js",
+        "D:\\Cleartrip-playwright-framework\\node_modules\\allure-playwright\\dist\\cjs\\index.js",
         {
           "resultsDir": "allure-results",
           "detail": true,
@@ -76,23 +111,82 @@
     "updateSnapshots": "missing",
     "updateSourceMethod": "patch",
     "version": "1.62.1",
-    "workers": 7,
+    "workers": 1,
     "webServer": null
   },
   "suites": [
     {
-      "title": "API_tests.spec.js",
-      "file": "API_tests.spec.js",
+      "title": "api\\API_TC6_Users_CRUD.spec.js",
+      "file": "api/API_TC6_Users_CRUD.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Reqres Users API",
+          "file": "api/API_TC6_Users_CRUD.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "API GET Request",
+              "ok": true,
+              "tags": [
+                "smoke"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 535,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "{\n  data: {\n    id: \u001b[33m2\u001b[39m,\n    email: \u001b[32m'janet.weaver@reqres.in'\u001b[39m,\n    first_name: \u001b[32m'Janet'\u001b[39m,\n    last_name: \u001b[32m'Weaver'\u001b[39m,\n    avatar: \u001b[32m'https://reqres.in/img/faces/2-image.jpg'\u001b[39m\n  },\n  support: {\n    url: \u001b[32m'https://benhowdle.im/first-cto-playbook?utm_source=reqres&utm_medium=json&utm_campaign=referral'\u001b[39m,\n    text: \u001b[32m'Become a better CTO. A playbook of painful stories and practical advice from a two-time startup CTO.'\u001b[39m\n  },\n  _meta: {\n    powered_by: \u001b[32m'ReqRes'\u001b[39m,\n    docs_url: \u001b[32m'https://app.reqres.in/documentation'\u001b[39m,\n    upgrade_url: \u001b[32m'https://app.reqres.in/upgrade'\u001b[39m,\n    example_url: \u001b[32m'https://app.reqres.in/examples/notes-app'\u001b[39m,\n    variant: \u001b[32m'v1_b'\u001b[39m,\n    message: \u001b[32m'This is a read-only demo endpoint. Sign up to create your own collections with full CRUD and auth.'\u001b[39m,\n    cta: { label: \u001b[32m'Get started'\u001b[39m, url: \u001b[32m'https://app.reqres.in/upgrade'\u001b[39m },\n    context: \u001b[32m'legacy_success'\u001b[39m\n  }\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-10T23:36:51.754Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0bce00cd430858f1e2d3-dbfa8f8f896734abcb1e",
+              "file": "api/API_TC6_Users_CRUD.spec.js",
+              "line": 11,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ui\\UI_TC1_One_way_trip_flow.spec.js",
+      "file": "ui/UI_TC1_One_way_trip_flow.spec.js",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "API PUT Request",
-          "ok": true,
-          "tags": [],
+          "title": "TC01 - One way flight search",
+          "ok": false,
+          "tags": [
+            "smoke"
+          ],
           "tests": [
             {
-              "timeout": 30000,
+              "timeout": 60000,
               "annotations": [],
               "expectedStatus": "passed",
               "projectId": "chromium",
@@ -101,36 +195,110 @@
                 {
                   "workerIndex": 0,
                   "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 504,
-                  "errors": [],
+                  "status": "failed",
+                  "duration": 59030,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/flights\\/itinerary/\u001b[39m\nReceived string:  \u001b[31m\"https://www.cleartrip.com/flights/results/itinerary/failure\"\u001b[39m\nTimeout: 15000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 15000ms\u001b[22m\n\u001b[2m    32 × locator resolved to <html lang=\"en\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"https://www.cleartrip.com/flights/results/itinerary/failure\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/flights\\/itinerary/\u001b[39m\nReceived string:  \u001b[31m\"https://www.cleartrip.com/flights/results/itinerary/failure\"\u001b[39m\nTimeout: 15000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 15000ms\u001b[22m\n\u001b[2m    32 × locator resolved to <html lang=\"en\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"https://www.cleartrip.com/flights/results/itinerary/failure\"\u001b[22m\n\n    at D:\\Cleartrip-playwright-framework\\tests\\ui\\UI_TC1_One_way_trip_flow.spec.js:60:23",
+                    "location": {
+                      "file": "D:\\Cleartrip-playwright-framework\\tests\\ui\\UI_TC1_One_way_trip_flow.spec.js",
+                      "column": 23,
+                      "line": 60
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 58 |\u001b[39m \u001b[36mconst\u001b[39m itineraryPage \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mItineraryPage\u001b[39m(newPage)\u001b[33m;\u001b[39m\n \u001b[90m 59 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 60 |\u001b[39m \u001b[36mawait\u001b[39m expect(newPage)\u001b[33m.\u001b[39mtoHaveURL(\u001b[35m/flights\\/itinerary/\u001b[39m\u001b[33m,\u001b[39m {\n \u001b[90m    |\u001b[39m                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 61 |\u001b[39m   timeout\u001b[33m:\u001b[39m \u001b[35m15000\u001b[39m\n \u001b[90m 62 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 63 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Cleartrip-playwright-framework\\tests\\ui\\UI_TC1_One_way_trip_flow.spec.js",
+                        "column": 23,
+                        "line": 60
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/flights\\/itinerary/\u001b[39m\nReceived string:  \u001b[31m\"https://www.cleartrip.com/flights/results/itinerary/failure\"\u001b[39m\nTimeout: 15000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 15000ms\u001b[22m\n\u001b[2m    32 × locator resolved to <html lang=\"en\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"https://www.cleartrip.com/flights/results/itinerary/failure\"\u001b[22m\n\n\n\u001b[0m \u001b[90m 58 |\u001b[39m \u001b[36mconst\u001b[39m itineraryPage \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mItineraryPage\u001b[39m(newPage)\u001b[33m;\u001b[39m\n \u001b[90m 59 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 60 |\u001b[39m \u001b[36mawait\u001b[39m expect(newPage)\u001b[33m.\u001b[39mtoHaveURL(\u001b[35m/flights\\/itinerary/\u001b[39m\u001b[33m,\u001b[39m {\n \u001b[90m    |\u001b[39m                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 61 |\u001b[39m   timeout\u001b[33m:\u001b[39m \u001b[35m15000\u001b[39m\n \u001b[90m 62 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 63 |\u001b[39m\u001b[0m\n\u001b[2m    at D:\\Cleartrip-playwright-framework\\tests\\ui\\UI_TC1_One_way_trip_flow.spec.js:60:23\u001b[22m"
+                    }
+                  ],
                   "stdout": [
                     {
-                      "text": "{\n  name: \u001b[32m'morpheus'\u001b[39m,\n  job: \u001b[32m'leader'\u001b[39m,\n  updatedAt: \u001b[32m'2026-09-29T09:42:18.070Z'\u001b[39m,\n  _meta: {\n    powered_by: \u001b[32m'ReqRes'\u001b[39m,\n    docs_url: \u001b[32m'https://app.reqres.in/documentation'\u001b[39m,\n    upgrade_url: \u001b[32m'https://app.reqres.in/upgrade'\u001b[39m,\n    example_url: \u001b[32m'https://app.reqres.in/examples/notes-app'\u001b[39m,\n    variant: \u001b[32m'v1_a'\u001b[39m,\n    message: \u001b[32m'Your data persists here. Add auth, logs, and custom schemas to build a real backend.'\u001b[39m,\n    cta: {\n      label: \u001b[32m'See example app'\u001b[39m,\n      url: \u001b[32m'https://app.reqres.in/examples/notes-app'\u001b[39m\n    },\n    context: \u001b[32m'legacy_success'\u001b[39m\n  }\n}\n"
+                      "text": "Book button count: \u001b[33m0\u001b[39m\n"
+                    },
+                    {
+                      "text": "Current URL: https://www.cleartrip.com/flights/results?adults=1&childs=0&infants=0&class=Economy&depart_date=11/11/2026&from=DEL&to=NMI&intl=n&origin=DEL%20-%20New%20Delhi,%20IN&destination=NMI%20-%20Navi%20Mumbai,%20IN&sft=student&sd=1791675435220&rnd_one=O&isCfw=false&nonStop=&isFF=false\n"
+                    },
+                    {
+                      "text": "Flight card count: \u001b[33m12\u001b[39m\n"
+                    },
+                    {
+                      "text": "Book button count: \u001b[33m12\u001b[39m\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-29T09:42:18.057Z",
+                  "startTime": "2026-10-10T23:36:52.485Z",
                   "annotations": [],
-                  "attachments": []
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Cleartrip-playwright-framework\\test-results\\ui-UI_TC1_One_way_trip_flow-TC01---One-way-flight-search-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Cleartrip-playwright-framework\\test-results\\ui-UI_TC1_One_way_trip_flow-TC01---One-way-flight-search-chromium\\test-failed-2.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "D:\\Cleartrip-playwright-framework\\test-results\\ui-UI_TC1_One_way_trip_flow-TC01---One-way-flight-search-chromium\\video-1.webm"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "D:\\Cleartrip-playwright-framework\\test-results\\ui-UI_TC1_One_way_trip_flow-TC01---One-way-flight-search-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Cleartrip-playwright-framework\\test-results\\ui-UI_TC1_One_way_trip_flow-TC01---One-way-flight-search-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Cleartrip-playwright-framework\\test-results\\ui-UI_TC1_One_way_trip_flow-TC01---One-way-flight-search-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Cleartrip-playwright-framework\\tests\\ui\\UI_TC1_One_way_trip_flow.spec.js",
+                    "column": 23,
+                    "line": 60
+                  }
                 }
               ],
-              "status": "expected"
+              "status": "unexpected"
             }
           ],
-          "id": "c8db9f0227ad5b659861-124010c547c57402d696",
-          "file": "API_tests.spec.js",
-          "line": 3,
-          "column": 5
-        },
+          "id": "da848a9aa189c9d60921-3d5c78cf1e7a20973b21",
+          "file": "ui/UI_TC1_One_way_trip_flow.spec.js",
+          "line": 7,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "ui\\UI_TC2_Round_trip.spec.js",
+      "file": "ui/UI_TC2_Round_trip.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
         {
-          "title": "API POST Request",
+          "title": "TC02 - Round trip flight search",
           "ok": true,
-          "tags": [],
+          "tags": [
+            "smoke"
+          ],
           "tests": [
             {
-              "timeout": 30000,
+              "timeout": 60000,
               "annotations": [],
               "expectedStatus": "passed",
               "projectId": "chromium",
@@ -138,18 +306,18 @@
               "results": [
                 {
                   "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 533,
+                  "duration": 35745,
                   "errors": [],
                   "stdout": [
                     {
-                      "text": "{\n  name: \u001b[32m'morpheus'\u001b[39m,\n  job: \u001b[32m'leader'\u001b[39m,\n  id: \u001b[32m'711'\u001b[39m,\n  createdAt: \u001b[32m'2026-09-29T09:42:18.088Z'\u001b[39m,\n  _meta: {\n    powered_by: \u001b[32m'ReqRes'\u001b[39m,\n    docs_url: \u001b[32m'https://app.reqres.in/documentation'\u001b[39m,\n    upgrade_url: \u001b[32m'https://app.reqres.in/upgrade'\u001b[39m,\n    example_url: \u001b[32m'https://app.reqres.in/examples/notes-app'\u001b[39m,\n    variant: \u001b[32m'v1_a'\u001b[39m,\n    message: \u001b[32m'Your data persists here. Add auth, logs, and custom schemas to build a real backend.'\u001b[39m,\n    cta: {\n      label: \u001b[32m'See example app'\u001b[39m,\n      url: \u001b[32m'https://app.reqres.in/examples/notes-app'\u001b[39m\n    },\n    context: \u001b[32m'legacy_success'\u001b[39m\n  }\n}\n"
+                      "text": "Summary bar count: \u001b[33m1\u001b[39m\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-29T09:42:18.038Z",
+                  "startTime": "2026-10-10T23:37:59.283Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -157,59 +325,102 @@
               "status": "expected"
             }
           ],
-          "id": "c8db9f0227ad5b659861-296aa1bc598811af7a43",
-          "file": "API_tests.spec.js",
-          "line": 17,
-          "column": 5
-        },
+          "id": "584a70bafcbbdd75794a-7e52407b7d6799768b50",
+          "file": "ui/UI_TC2_Round_trip.spec.js",
+          "line": 5,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "ui\\UI_TC5_Hotel_booking_flow.spec.js",
+      "file": "ui/UI_TC5_Hotel_booking_flow.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
         {
-          "title": "API GET Request",
-          "ok": true,
-          "tags": [],
+          "title": "TC05 - One way hotel search",
+          "ok": false,
+          "tags": [
+            "smoke"
+          ],
           "tests": [
             {
-              "timeout": 30000,
+              "timeout": 60000,
               "annotations": [],
               "expectedStatus": "passed",
               "projectId": "chromium",
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
-                  "status": "passed",
-                  "duration": 526,
-                  "errors": [],
-                  "stdout": [
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 63180,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
                     {
-                      "text": "{\n  data: {\n    id: \u001b[33m2\u001b[39m,\n    email: \u001b[32m'janet.weaver@reqres.in'\u001b[39m,\n    first_name: \u001b[32m'Janet'\u001b[39m,\n    last_name: \u001b[32m'Weaver'\u001b[39m,\n    avatar: \u001b[32m'https://reqres.in/img/faces/2-image.jpg'\u001b[39m\n  },\n  support: {\n    url: \u001b[32m'https://benhowdle.im/first-cto-playbook?utm_source=reqres&utm_medium=json&utm_campaign=referral'\u001b[39m,\n    text: \u001b[32m'Become a better CTO. A playbook of painful stories and practical advice from a two-time startup CTO.'\u001b[39m\n  },\n  _meta: {\n    powered_by: \u001b[32m'ReqRes'\u001b[39m,\n    docs_url: \u001b[32m'https://app.reqres.in/documentation'\u001b[39m,\n    upgrade_url: \u001b[32m'https://app.reqres.in/upgrade'\u001b[39m,\n    example_url: \u001b[32m'https://app.reqres.in/examples/notes-app'\u001b[39m,\n    variant: \u001b[32m'v1_a'\u001b[39m,\n    message: \u001b[32m'Your data persists here. Add auth, logs, and custom schemas to build a real backend.'\u001b[39m,\n    cta: {\n      label: \u001b[32m'See example app'\u001b[39m,\n      url: \u001b[32m'https://app.reqres.in/examples/notes-app'\u001b[39m\n    },\n    context: \u001b[32m'legacy_success'\u001b[39m\n  }\n}\n"
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\Cleartrip-playwright-framework\\pages\\ui\\homepage.js",
+                        "column": 23,
+                        "line": 52
+                      },
+                      "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"closeIcon\"]')\u001b[22m\n\u001b[2m    - found locator('[data-testid=\"closeIcon\"]'), intercepting action to run the handler\u001b[22m\n\u001b[2m    - locator handler has finished, waiting for locator('[data-testid=\"closeIcon\"]') to be hidden\u001b[22m\n\u001b[2m    - interception handler has finished, continuing\u001b[22m\n\n\n\u001b[90m   at \u001b[39m..\\pages\\ui\\homepage.js:52\n\n\u001b[0m \u001b[90m 50 |\u001b[39m\n \u001b[90m 51 |\u001b[39m     \u001b[36mif\u001b[39m (appeared) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 52 |\u001b[39m       \u001b[36mawait\u001b[39m closeIcon\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 53 |\u001b[39m     }\n \u001b[90m 54 |\u001b[39m   }\n \u001b[90m 55 |\u001b[39m\u001b[0m\n\u001b[2m    at HomePage.closePopupIfVisible (D:\\Cleartrip-playwright-framework\\pages\\ui\\homepage.js:52:23)\u001b[22m\n\u001b[2m    at D:\\Cleartrip-playwright-framework\\tests\\ui\\UI_TC5_Hotel_booking_flow.spec.js:14:3\u001b[22m"
                     }
                   ],
+                  "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-29T09:42:18.038Z",
+                  "startTime": "2026-10-10T23:38:36.531Z",
                   "annotations": [],
-                  "attachments": []
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Cleartrip-playwright-framework\\test-results\\ui-UI_TC5_Hotel_booking_flow-TC05---One-way-hotel-search-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "D:\\Cleartrip-playwright-framework\\test-results\\ui-UI_TC5_Hotel_booking_flow-TC05---One-way-hotel-search-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Cleartrip-playwright-framework\\test-results\\ui-UI_TC5_Hotel_booking_flow-TC05---One-way-hotel-search-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Cleartrip-playwright-framework\\test-results\\ui-UI_TC5_Hotel_booking_flow-TC05---One-way-hotel-search-chromium\\trace.zip"
+                    }
+                  ]
                 }
               ],
-              "status": "expected"
+              "status": "unexpected"
             }
           ],
-          "id": "c8db9f0227ad5b659861-f8b9245c1cc937a1ed82",
-          "file": "API_tests.spec.js",
-          "line": 31,
-          "column": 5
+          "id": "bef7f8b7d74565b66a07-ff05d8380bb02a20fc5e",
+          "file": "ui/UI_TC5_Hotel_booking_flow.spec.js",
+          "line": 8,
+          "column": 1
         }
       ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-09-29T09:42:17.102Z",
-    "duration": 2163.101,
-    "expected": 3,
+    "startTime": "2026-10-10T23:36:49.531Z",
+    "duration": 175145.717,
+    "expected": 2,
     "skipped": 0,
-    "unexpected": 0,
+    "unexpected": 2,
     "flaky": 0
   }
 }
