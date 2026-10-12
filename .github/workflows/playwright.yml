@@ -8,10 +8,22 @@ on:
     branches: [master]
   workflow_dispatch:
     inputs:
-      all_browsers:
-        description: 'Run on all browsers (chromium, firefox, webkit)'
-        type: boolean
-        default: false
+      browser:
+        description: 'Browser to run on'
+        type: choice
+        default: chromium
+        options:
+          - chromium
+          - firefox
+          - webkit
+          - all
+      tag:
+        description: 'Test tag to run'
+        type: choice
+        default: all
+        options:
+          - all
+          - smoke
   schedule:
     - cron: '30 7 * * *'
 
@@ -37,14 +49,22 @@ jobs:
 
       - name: Run Playwright tests
         run: |
-          if [ "${{ github.event_name == 'workflow_dispatch' && inputs.all_browsers }}" = "true" ]; then
-            npx playwright test
-          else
-            npx playwright test --project=chromium
+          BROWSER="${BROWSER_INPUT:-chromium}"
+          TAG="${TAG_INPUT:-smoke}"
+          ARGS=""
+          if [ "$BROWSER" != "all" ]; then
+            ARGS="$ARGS --project=$BROWSER"
           fi
+          if [ "$TAG" != "all" ]; then
+            ARGS="$ARGS --grep @$TAG"
+          fi
+          echo "Running: npx playwright test $ARGS"
+          npx playwright test $ARGS
         continue-on-error: true
         id: run_tests
         env:
+          BROWSER_INPUT: ${{ inputs.browser }}
+          TAG_INPUT: ${{ inputs.tag }}
           REQRES_LOGIN_URL: ${{ secrets.REQRES_LOGIN_URL }}
           REQRES_EMAIL: ${{ secrets.REQRES_EMAIL }}
           REQRES_PASSWORD: ${{ secrets.REQRES_PASSWORD }}
