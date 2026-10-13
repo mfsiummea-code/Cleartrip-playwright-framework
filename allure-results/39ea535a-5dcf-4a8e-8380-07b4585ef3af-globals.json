@@ -1,1 +1,0 @@
-{"attachments":[],"errors":[{"message":"beforeEach hook failed: Test timeout of 30000ms exceeded while running \"beforeEach\" hook.","trace":"Test timeout of 30000ms exceeded while running \"beforeEach\" hook.\n    at D:\\bookmyshow-playwright-framework\\tests\\TC4_Visual_validation.spec.js:5:10","timestamp":1790666875289}]}
