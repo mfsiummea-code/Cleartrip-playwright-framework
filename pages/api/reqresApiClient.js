@@ -20,6 +20,10 @@ export class ReqresApiClient {
     return this.request.post(`${this.baseUrl}/users`, { data: payload });
   }
 
+  async login(payload) {
+    return this.request.post(`${this.baseUrl}/login`, { data: payload });
+  }
+
   /**
    * PUT /users/:id
    * @param {{ name: string, job: string }} payload

@@ -86,18 +86,6 @@ test('TC01b - Fare types are mutually exclusive', async ({ page }) => {
 });
 
 
-// CSS selectors - avoid getbyrole (change to CSS selectors) - updated few
-// Assertion - test if location changes are accepted or not - works
-// add assertion on new page find any stable text - added on Book
-// flight fares - student, senior and army can't be selected at the same time - update and add assertion for the same
-
-
-
-// use date picker function in test file 
-// In homepage.js faretype should not accept multiple selection that for loop is unnecessary-
-// book - add assertion and make it dynamic, any fight can be chosen on that page
-// file chooser and mobile web testing implementation 
-
 
 
 

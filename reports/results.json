@@ -4,10 +4,8 @@
       "C:\\Program Files\\nodejs\\node.exe",
       "D:\\Cleartrip-playwright-framework\\node_modules\\@playwright\\test\\cli.js",
       "test",
-      "--grep",
-      "@smoke",
-      "--project=chromium",
-      "--list"
+      "UI_TC5_Hotel_booking_flow.spec.js",
+      "--project=chromium"
     ],
     "configFile": "D:\\Cleartrip-playwright-framework\\playwright.config.js",
     "rootDir": "D:/Cleartrip-playwright-framework/tests",
@@ -20,14 +18,18 @@
     "grep": {},
     "grepInvert": null,
     "maxFailures": 0,
-    "metadata": {},
+    "metadata": {
+      "actualWorkers": 1
+    },
     "preserveOutput": "always",
     "projects": [
       {
         "outputDir": "D:/Cleartrip-playwright-framework/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {},
+        "metadata": {
+          "actualWorkers": 1
+        },
         "id": "chromium",
         "name": "chromium",
         "testDir": "D:/Cleartrip-playwright-framework/tests",
@@ -41,7 +43,9 @@
         "outputDir": "D:/Cleartrip-playwright-framework/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {},
+        "metadata": {
+          "actualWorkers": 1
+        },
         "id": "firefox",
         "name": "firefox",
         "testDir": "D:/Cleartrip-playwright-framework/tests",
@@ -55,7 +59,9 @@
         "outputDir": "D:/Cleartrip-playwright-framework/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {},
+        "metadata": {
+          "actualWorkers": 1
+        },
         "id": "webkit",
         "name": "webkit",
         "testDir": "D:/Cleartrip-playwright-framework/tests",
@@ -108,105 +114,6 @@
   },
   "suites": [
     {
-      "title": "api\\API_TC6_Users_CRUD.spec.js",
-      "file": "api/API_TC6_Users_CRUD.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Reqres Users API",
-          "file": "api/API_TC6_Users_CRUD.spec.js",
-          "line": 4,
-          "column": 6,
-          "specs": [
-            {
-              "title": "API GET Request",
-              "ok": true,
-              "tags": [
-                "smoke"
-              ],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
-                }
-              ],
-              "id": "0bce00cd430858f1e2d3-dbfa8f8f896734abcb1e",
-              "file": "api/API_TC6_Users_CRUD.spec.js",
-              "line": 11,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "ui\\UI_TC1_One_way_trip_flow.spec.js",
-      "file": "ui/UI_TC1_One_way_trip_flow.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [
-        {
-          "title": "TC01 - One way flight search",
-          "ok": true,
-          "tags": [
-            "smoke"
-          ],
-          "tests": [
-            {
-              "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "chromium",
-              "projectName": "chromium",
-              "results": [],
-              "status": "skipped"
-            }
-          ],
-          "id": "da848a9aa189c9d60921-3d5c78cf1e7a20973b21",
-          "file": "ui/UI_TC1_One_way_trip_flow.spec.js",
-          "line": 7,
-          "column": 1
-        }
-      ]
-    },
-    {
-      "title": "ui\\UI_TC2_Round_trip.spec.js",
-      "file": "ui/UI_TC2_Round_trip.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [
-        {
-          "title": "TC02 - Round trip flight search",
-          "ok": true,
-          "tags": [
-            "smoke"
-          ],
-          "tests": [
-            {
-              "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "chromium",
-              "projectName": "chromium",
-              "results": [],
-              "status": "skipped"
-            }
-          ],
-          "id": "584a70bafcbbdd75794a-7e52407b7d6799768b50",
-          "file": "ui/UI_TC2_Round_trip.spec.js",
-          "line": 5,
-          "column": 1
-        }
-      ]
-    },
-    {
       "title": "ui\\UI_TC5_Hotel_booking_flow.spec.js",
       "file": "ui/UI_TC5_Hotel_booking_flow.spec.js",
       "column": 0,
@@ -225,8 +132,22 @@
               "expectedStatus": "passed",
               "projectId": "chromium",
               "projectName": "chromium",
-              "results": [],
-              "status": "skipped"
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 26102,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T20:20:15.298Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
             }
           ],
           "id": "bef7f8b7d74565b66a07-ff05d8380bb02a20fc5e",
@@ -239,10 +160,10 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-12T22:31:40.584Z",
-    "duration": 481.818,
-    "expected": 0,
-    "skipped": 4,
+    "startTime": "2026-10-14T20:20:13.257Z",
+    "duration": 30755.805000000004,
+    "expected": 1,
+    "skipped": 0,
     "unexpected": 0,
     "flaky": 0
   }

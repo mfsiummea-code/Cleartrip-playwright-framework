@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 const { HomePage } = require('../../pages/ui/homepage');
 const { ResultsPage } = require('../../pages/ui/resultspage');
 
-test('TC03 - Swap cities and verify search results', async ({ page }) => {
+test('TC03 - Swap cities and verify search results',{ tag: '@regression' }, async ({ page }) => {
   const homePage = new HomePage(page);
   const resultsPage = new ResultsPage(page);
 
@@ -35,21 +35,20 @@ test('TC03 - Swap cities and verify search results', async ({ page }) => {
   await expect(resultsPage.isAirlineFilterChecked('Air India')).toBeChecked();
   // Add when no result is shown for that filter -??
 
-  // default should be ascending - first price should be <= second price
-const ascendingPrices = await resultsPage.getAllFlightPrices();
-expect(ascendingPrices[0]).toBeLessThanOrEqual(ascendingPrices[1]);
+  //sort helpers - check the top 5 prices, not just the first two
+  const isAscending = (p) => p.every((v, i) => i === 0 || p[i - 1] <= v);
+  const isDescending = (p) => p.every((v, i) => i === 0 || p[i - 1] >= v);
+  const topPrices = async () => (await resultsPage.getAllFlightPrices()).slice(0, 5);
 
-// toggle to descending
-await resultsPage.clickPriceSort();
-await page.waitForTimeout(500);
+  // 1st click -> up arrow (ascending)
+  await resultsPage.clickPriceSort();
+  await expect.poll(async () => isAscending(await topPrices()), { timeout: 10000 }).toBe(true);
 
-const descendingPrices = await resultsPage.getAllFlightPrices();
-expect(descendingPrices[0]).toBeGreaterThanOrEqual(descendingPrices[1]);
+  // 2nd click -> down arrow (descending)
+  await resultsPage.clickPriceSort();
+  await expect.poll(async () => isDescending(await topPrices()), { timeout: 10000 }).toBe(true);
 
-// toggle back to ascending
-await resultsPage.clickPriceSort();
-await page.waitForTimeout(500);
-
-const ascendingAgain = await resultsPage.getAllFlightPrices();
-expect(ascendingAgain[0]).toBeLessThanOrEqual(ascendingAgain[1]);
+  // 3rd click -> up arrow again (ascending)
+  await resultsPage.clickPriceSort();
+  await expect.poll(async () => isAscending(await topPrices()), { timeout: 10000 }).toBe(true);
 });

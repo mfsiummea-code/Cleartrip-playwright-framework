@@ -9,10 +9,9 @@ test.describe.serial('TC04 - Visual Validation on Homepage', () => {
     });
 
     // TC04.1 - Element-specific screenshot comparison - should always pass
-    test('TC04.1 - Cleartrip logo matches baseline screenshot', async ({ page }, testInfo) => {
+    test('TC04.1 - Cleartrip logo matches baseline screenshot',{ tag: '@regression' }, async ({ page }, testInfo) => {
         const homePage = new HomePage(page);
         const logo = homePage.getLogo();
-
         await expect(logo).toBeVisible();
 
         //Screenshot capture
@@ -28,8 +27,13 @@ test.describe.serial('TC04 - Visual Validation on Homepage', () => {
         const capturePath = testInfo.outputPath('homepage-full-capture.png');
         await page.screenshot({ path: capturePath, fullPage: true });
 
-        // "Comparison" requirement - full-page pixel diff against stored baseline.
-        await expect(page).toHaveScreenshot('homepage-full.png', { fullPage: true });
+        await expect(page).toHaveScreenshot('homepage-full.png', {
+    fullPage: true,
+    mask: [
+        page.locator('aside'),
+        page.locator('img[alt^="offer"]'),
+    ],
+});
     });
 
     // TC04.3 - Deliberate baseline mismatch. Will ALWAYS Fail

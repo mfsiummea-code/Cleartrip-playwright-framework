@@ -64,4 +64,19 @@ test.describe('Reqres Users API', () => {
     const getResponse = await api.getUser(2);
     expect(getResponse.status()).toBe(200);
   });
+
+  //negative
+    test('API GET Request - non-existent user returns 404', async () => {
+    const response = await api.getUser(9999);
+    expect(response.status()).toBe(404);
+  });
+
+    test('API POST Request - login without password is rejected', async () => {
+    const response = await api.login({ email: 'eve.holt@reqres.in' });
+    expect(response.status()).toBe(400);
+
+    const body = await response.json();
+    expect(body).toHaveProperty('error');
+    expect(body.error).toMatch(/password/i);
+  });
 });

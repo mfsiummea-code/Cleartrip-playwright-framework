@@ -24,6 +24,7 @@ on:
         options:
           - all
           - smoke
+          - regression
   schedule:
     - cron: '30 7 * * *'
 
